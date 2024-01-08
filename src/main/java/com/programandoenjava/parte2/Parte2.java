@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class Parte2 {
     /**
-     * @listaNumeros Lista de números reales.
+     * listaNumeros Lista de números reales.
      */
     ArrayList<Double> listaNumeros = new ArrayList<>();
 
