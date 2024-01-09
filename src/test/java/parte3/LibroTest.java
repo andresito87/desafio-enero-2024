@@ -1,7 +1,6 @@
 package parte3;
 
 import com.programandoenjava.parte3.Libro;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +18,7 @@ public class LibroTest {
     
     @Test
     public void getId() {
-        assertEquals(1, libro.getId());
+        assertEquals(24, libro.getId());
     }
     
     @Test
@@ -57,6 +56,6 @@ public class LibroTest {
     
     @Test
     public void getIdSegundoLibro() {
-        assertEquals(2, libro2.getId());
+        assertEquals(25, libro2.getId());
     }
 }

@@ -3,7 +3,15 @@ package com.programandoenjava.parte3;
 import java.util.HashSet;
 
 public class Biblioteca {
-    HashSet<Libro> libros; //HashSet es una colección que no permite duplicados, id del libro es único
+     private HashSet<Libro> libros; //HashSet es una colección que no permite duplicados, id del libro es único
+    
+    public Biblioteca() {
+        libros = new HashSet<>();
+    }
+    
+    public HashSet<Libro> getLibros() {
+       return new HashSet<>(libros); //devuelve una copia de la colección
+    }
     public void agregarLibro(Libro libro) {
         libros.add(libro);
     }

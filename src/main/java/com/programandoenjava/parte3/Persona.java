@@ -3,15 +3,16 @@ package com.programandoenjava.parte3;
 import java.util.ArrayList;
 
 public class Persona {
-    public static int contdadorIdsPersonas = 1;
-    public int id = contdadorIdsPersonas++;
-    public String nombre;
-    public int edad;
-    public ArrayList<Libro> librosPrestados;
+    private static int contdadorIdsPersonas = 1;
+    private final int id = contdadorIdsPersonas++;
+    private final String nombre;
+    private final int edad;
+    private final ArrayList<Libro> librosPrestados;
 
     public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+        this.librosPrestados = new ArrayList<>();
     }
 
     public int getId() {
@@ -24,6 +25,19 @@ public class Persona {
 
     public int getEdad() {
         return this.edad;
+    }
+    
+    public ArrayList<Libro> getLibrosPrestados() {
+        return new ArrayList<>(this.librosPrestados);
+    }
+    
+    public Libro buscarLibroPorId(int id) {
+        for (Libro libro : this.librosPrestados) {
+            if (libro.getId() == id) {
+                return libro;
+            }
+        }
+        return null;
     }
 
     public void tomarPrestado(Libro libro) {
