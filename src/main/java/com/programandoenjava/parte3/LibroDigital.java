@@ -1,7 +1,7 @@
 package com.programandoenjava.parte3;
 
 public class LibroDigital extends Libro {
-    private final String url;
+    private String url;
 
     public LibroDigital(String titulo, String autor, int anioPublicacion, String url) {
         super(titulo, autor, anioPublicacion);
@@ -10,5 +10,9 @@ public class LibroDigital extends Libro {
 
     public String getUrl() {
         return this.url;
+    }
+    
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

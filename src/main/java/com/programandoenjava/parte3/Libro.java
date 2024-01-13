@@ -1,8 +1,8 @@
 package com.programandoenjava.parte3;
 
 public class Libro {
-    private static int contadorIds = 1; //id del libro es único y empieza en 1, autoincremental
-    private final int id = contadorIds++;
+    public static int contadorIds = 0; //id del libro es único y empieza en 1, autoincremental
+    private final int id;
     private String titulo;
     private String autor;
     private int anioPublicacion;
@@ -11,6 +11,7 @@ public class Libro {
         this.titulo = titulo;
         this.autor = autor;
         this.anioPublicacion = anioPublicacion;
+        this.id = ++Libro.contadorIds;
     }
 
     public int getId() {

@@ -1,29 +1,27 @@
 package parte3;
 
 import com.programandoenjava.parte3.Libro;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LibroTest {
-    private static Libro libro;
-    private static Libro libro2;
+    private Libro libro;
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         libro = new Libro("Effective Java", "Joshua Bloch", 2017);
-        libro2 = new Libro("JavaScript - The Definitive Guide", "David Flanagan", 2020);
     }
     
     @Test
     public void getId() {
-        assertEquals(24, libro.getId());
+        assertEquals(Libro.contadorIds, libro.getId());
     }
     
     @Test
     public void getTitulo() {
-        assertEquals("JavaScript - The Definitive Guide", libro2.getTitulo());
+        assertEquals("Effective Java", libro.getTitulo());
     }
     
     @Test
@@ -34,7 +32,7 @@ public class LibroTest {
     
     @Test
     public void getAutor(){
-        assertEquals("David Flanagan", libro2.getAutor());
+        assertEquals("Joshua Bloch", libro.getAutor());
     }
     
     @Test
@@ -45,7 +43,7 @@ public class LibroTest {
     
     @Test
     public void getAnioPublicacion() {
-        assertEquals(2020, libro2.getAnioPublicacion());
+        assertEquals(2017, libro.getAnioPublicacion());
     }
     
     @Test
@@ -53,9 +51,11 @@ public class LibroTest {
         libro.setAnioPublicacion(2018);
         assertEquals(2018, libro.getAnioPublicacion());
     }
-    
+
     @Test
     public void getIdSegundoLibro() {
-        assertEquals(25, libro2.getId());
+        Libro libro2 = new Libro("JavaScript - The Definitive Guide", "David Flanagan", 2020);
+        assertEquals(Libro.contadorIds, libro2.getId());
     }
+    
 }

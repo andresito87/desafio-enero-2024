@@ -3,19 +3,20 @@ package parte3;
 import com.programandoenjava.parte3.Biblioteca;
 import com.programandoenjava.parte3.Libro;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class BibliotecaTest {
-    private static Biblioteca biblioteca;
-    private static Libro libro;
+    private Biblioteca biblioteca;
+    private Libro libro;
 
-    @BeforeAll
-    public static void setUp() {
+    @BeforeEach
+    public void setUp() {
         biblioteca = new Biblioteca();
-        libro = new Libro("Effective Java", "Joshua Bloch", 2017);
+        libro = new Libro("C++: Compiler", "Eduard", 2017);
     }
     
     @Test
