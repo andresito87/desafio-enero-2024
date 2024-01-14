@@ -2,6 +2,13 @@ package com.programandoenjava.parte3;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que representa una <strong>Persona</strong>.
+ * Una persona tiene un id, un nombre, una edad y una colección de libros prestados.
+ * @see Libro
+ * @version 1.0
+ * @author Andres Samuel Podadera Gonzalez
+ */
 public class Persona {
     private static int contdadorIdsPersonas = 1;
     private final int id = contdadorIdsPersonas++;
