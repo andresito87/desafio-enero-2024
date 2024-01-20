@@ -26,8 +26,12 @@ public class LibroDigital extends Libro {
      * @param autor           el autor del libro.
      * @param anioPublicacion el año de publicación del libro.
      * @param url             la url del libro digital.
+     * @throws IllegalArgumentException si el título del libro es nulo o vacío.
+     * @throws IllegalArgumentException si el autor del libro es nulo o vacío.
+     * @throws IllegalArgumentException si el año de publicación es menor que 0 o mayor que el año actual.
+     * @throws IllegalArgumentException si la url del libro digital es nula o vacía.
      */
-    public LibroDigital(String titulo, String autor, int anioPublicacion, String url) {
+    public LibroDigital(String titulo, String autor, int anioPublicacion, String url) throws IllegalArgumentException {
         super(titulo, autor, anioPublicacion);
         this.setUrl(url);
     }

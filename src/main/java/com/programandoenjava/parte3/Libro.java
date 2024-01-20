@@ -46,8 +46,12 @@ public class Libro {
      * @param titulo          el título del libro.
      * @param autor           el autor del libro.
      * @param anioPublicacion el año de publicación del libro.
+     * @throws IllegalArgumentException si el título del libro es nulo o vacío.
+     * @throws IllegalArgumentException si el autor del libro es nulo o vacío.
+     * @throws IllegalArgumentException si el año de publicación es menor que 0 o mayor que el año actual.
+     * @see LocalDate
      */
-    public Libro(String titulo, String autor, int anioPublicacion) {
+    public Libro(String titulo, String autor, int anioPublicacion) throws IllegalArgumentException {
         this.setTitulo(titulo);
         this.setAutor(autor);
         this.setAnioPublicacion(anioPublicacion);
@@ -78,6 +82,7 @@ public class Libro {
      * Establece el título del libro.
      *
      * @param titulo el título del libro.
+     * @throws IllegalArgumentException si el título del libro es nulo o vacío.
      */
     public void setTitulo(String titulo) throws IllegalArgumentException {
         if (titulo == null || titulo.isBlank() || titulo.length() > 50 || titulo.length() < 4) {
@@ -99,8 +104,9 @@ public class Libro {
      * Establece el autor del libro.
      *
      * @param autor el autor del libro.
+     * @throws IllegalArgumentException si el autor del libro es nulo o vacío.
      */
-    public void setAutor(String autor) {
+    public void setAutor(String autor) throws IllegalArgumentException {
         if (autor == null || autor.isBlank() || autor.length() > 50 || autor.length() < 3) {
             throw new IllegalArgumentException("El autor del libro no puede ser nulo o vacío.");
         }
@@ -120,8 +126,9 @@ public class Libro {
      * Establece el año de publicación del libro.
      *
      * @param anioPublicacion el año de publicación del libro.
+     * @throws IllegalArgumentException si el año de publicación es menor que 0 o mayor que el año actual.
      */
-    public void setAnioPublicacion(int anioPublicacion) {
+    public void setAnioPublicacion(int anioPublicacion) throws IllegalArgumentException {
         if (anioPublicacion < 0 || anioPublicacion > LocalDate.now().getYear()) {
             throw new IllegalArgumentException("El año de publicación no puede ser menor que 0 ni mayor que el año actual.");
         }

@@ -41,8 +41,9 @@ public class Persona {
      *
      * @param nombre el nombre de la persona.
      * @param edad   la edad de la persona.
+     * @throws IllegalArgumentException si el nombre de la persona es nulo o vacío.
      */
-    public Persona(String nombre, int edad) {
+    public Persona(String nombre, int edad) throws IllegalArgumentException {
         this.setNombre(nombre);
         this.setEdad(edad);
         this.librosPrestados = new ArrayList<>();
@@ -72,8 +73,9 @@ public class Persona {
      * Establece el nombre de la persona.
      *
      * @param nombre el nombre de la persona.
+     * @throws IllegalArgumentException si el nombre de la persona es nulo o vacío.
      */
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) throws IllegalArgumentException {
         if (nombre == null || nombre.isBlank() || nombre.length() > 20 || nombre.length() < 4) {
             throw new IllegalArgumentException("El nombre de la persona no puede ser nulo o vacío.");
         }
@@ -93,8 +95,9 @@ public class Persona {
      * Establece la edad de la persona.
      *
      * @param edad la edad de la persona.
+     * @throws IllegalArgumentException si la edad de la persona es menor que 0 o mayor que 120.
      */
-    public void setEdad(int edad) {
+    public void setEdad(int edad) throws IllegalArgumentException {
         if (edad < 0 || edad > 120) {
             throw new IllegalArgumentException("La edad de la persona debe estar entre 0 y 120.");
         }
