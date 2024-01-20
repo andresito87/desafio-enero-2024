@@ -21,12 +21,12 @@ public class Parte1 {
                 //Lo añadimos a la frase invertida
                 fraseInvertida.append(cadena.charAt(i));
             } else {
-               //Si el caracter es una letra, recorremos la palabra hasta el final
+                //Si el caracter es una letra, recorremos la palabra hasta el final
                 for (int j = i; j < cadena.length() && cadena.charAt(j) != ' '; j++) {
                     //Si el caracter es una letra, lo añadimos al principio de la palabra invertida
                     if (Character.isLetter(cadena.charAt(j))) {
                         palabraInvertida.insert(0, cadena.charAt(j));
-                    }else {
+                    } else {
                         //Si el caracter es un espacio en blanco, lo añadimos a la palabra invertida
                         palabraInvertida.append(cadena.charAt(j));
                     }

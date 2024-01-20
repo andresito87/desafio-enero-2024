@@ -5,12 +5,13 @@ import java.util.ArrayList;
 /**
  * Clase que representa una <strong>Persona</strong>.
  * Una persona tiene un id, un nombre, una edad y una colección de libros prestados.
- * @see Libro
- * @version 1.0
+ *
  * @author Andres Samuel Podadera Gonzalez
+ * @version 1.0
+ * @see Libro
  */
 public class Persona {
-    
+
     //Atributos
     /**
      * contdadorIdsPersonas es un contador de ids de personas.
@@ -23,31 +24,35 @@ public class Persona {
     /**
      * nombre es el nombre de la persona.
      */
-    private final String nombre;
+    private String nombre;
     /**
      * edad es la edad de la persona.
      */
-    private final int edad;
+    private int edad;
     /**
      * librosPrestados es una colección de libros prestados.
      */
     private final ArrayList<Libro> librosPrestados;
 
     //Constructor
+
     /**
      * Crea un objeto Persona con un nombre y una edad.
+     *
      * @param nombre el nombre de la persona.
-     * @param edad la edad de la persona.
+     * @param edad   la edad de la persona.
      */
     public Persona(String nombre, int edad) {
-        this.nombre = nombre;
-        this.edad = edad;
+        this.setNombre(nombre);
+        this.setEdad(edad);
         this.librosPrestados = new ArrayList<>();
     }
 
     //Métodos
+
     /**
      * Devuelve el id de la persona.
+     *
      * @return int el id de la persona.
      */
     public int getId() {
@@ -56,6 +61,7 @@ public class Persona {
 
     /**
      * Devuelve el nombre de la persona.
+     *
      * @return String el nombre de la persona.
      */
     public String getNombre() {
@@ -63,23 +69,50 @@ public class Persona {
     }
 
     /**
+     * Establece el nombre de la persona.
+     *
+     * @param nombre el nombre de la persona.
+     */
+    public void setNombre(String nombre) {
+        if (nombre == null || nombre.isBlank() || nombre.length() > 20 || nombre.length() < 4) {
+            throw new IllegalArgumentException("El nombre de la persona no puede ser nulo o vacío.");
+        }
+        this.nombre = nombre;
+    }
+
+    /**
      * Devuelve la edad de la persona.
+     *
      * @return int la edad de la persona.
      */
     public int getEdad() {
         return this.edad;
     }
-    
+
+    /**
+     * Establece la edad de la persona.
+     *
+     * @param edad la edad de la persona.
+     */
+    public void setEdad(int edad) {
+        if (edad < 0 || edad > 120) {
+            throw new IllegalArgumentException("La edad de la persona debe estar entre 0 y 120.");
+        }
+        this.edad = edad;
+    }
+
     /**
      * Devuelve una copia de la colección de libros prestados.
+     *
      * @return ArrayList<Libro> una copia de la colección de libros prestados.
      */
     public ArrayList<Libro> getLibrosPrestados() {
         return new ArrayList<>(this.librosPrestados);
     }
-    
+
     /**
      * Busca un libro por su id.
+     *
      * @param id el id del libro a buscar.
      * @return Libro el libro encontrado o null si no se encuentra.
      */
@@ -94,6 +127,7 @@ public class Persona {
 
     /**
      * Toma prestado un libro o agrega un libro a la colección de libros prestados.
+     *
      * @param libro el libro a tomar prestado.
      */
     public void tomarPrestado(Libro libro) {
@@ -102,6 +136,7 @@ public class Persona {
 
     /**
      * Devuelve un libro o elimina un libro de la colección de libros prestados.
+     *
      * @param libro el libro a devolver.
      */
     public void devolver(Libro libro) {

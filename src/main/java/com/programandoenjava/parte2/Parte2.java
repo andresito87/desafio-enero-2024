@@ -19,7 +19,7 @@ public class Parte2 {
      */
     public double sumarNumeros() {
         //Programacion funcional, reduce suma todos los elementos de la lista
-       return listaNumeros.stream().reduce(0.0, Double::sum);
+        return listaNumeros.stream().reduce(0.0, Double::sum);
     }
 
     /**
