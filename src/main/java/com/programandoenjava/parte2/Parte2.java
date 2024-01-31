@@ -1,25 +1,28 @@
 package com.programandoenjava.parte2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Programa que utiliza un ArrayList para almacenar números doubles(cualquier número)
- * Permite agregar números enteros a la lista y calcular la suma de todos los números.
+ * Programa que utiliza un ArrayList para almacenar números de cualquier tipo que extienda de Number.
+ * Permite agregar números a la lista y calcular la suma de todos los números.
+ *
+ * @param <T> Tipo de número que extiende de Number.
  */
-public class Parte2 {
+public class Parte2<T extends Number> {
     /**
-     * listaNumeros Lista de números reales.
+     * listaNumeros Lista de números.
      */
-    ArrayList<Double> listaNumeros = new ArrayList<>();
+    private List<T> listaNumeros = new ArrayList<>();
 
     /**
-     * Calcula la suma de todos los números enteros.
+     * Calcula la suma de todos los números.
      *
-     * @return La suma de los números enteros.
+     * @return La suma de los números.
      */
     public double sumarNumeros() {
-        //Programacion funcional, reduce suma todos los elementos de la lista
-        return listaNumeros.stream().reduce(0.0, Double::sum);
+        // Programación funcional, reduce suma todos los elementos de la lista
+        return listaNumeros.stream().mapToDouble(Number::doubleValue).sum();
     }
 
     /**
@@ -27,8 +30,8 @@ public class Parte2 {
      *
      * @param numero El número que se va a agregar.
      */
-    public void agregarNumero(double numero) {
-        //Agrega un numero a la lista
+    public void agregarNumero(T numero) {
+        // Agrega un número a la lista
         listaNumeros.add(numero);
     }
 }
